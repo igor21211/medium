@@ -1,5 +1,8 @@
 # meduim
 
+## Deploy Version
+https://conduit-medium.netlify.app/
+
 ## Project setup
 ```
 npm install
