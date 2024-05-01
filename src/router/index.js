@@ -1,27 +1,79 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import GlobalFeed from '@/views/ClobalFeed';
+import YourFeed from '@/views/YourFeed';
+import TagFeed from '@/views/TagFeed';
+import Register from '@/views/Register';
+import Login from '@/views/Login';
+import Article from '@/views/Article';
+import CreateArticle from '@/views/CreateArticle';
+import EditArticle from '@/views/EditArticle';
+import Settings from '@/views/Settings';
+import UserProfile from '@/views/UserProfile';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'globalFeed',
+    component: GlobalFeed,
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+    path: '/register',
+    name: 'register',
+    component: Register,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
+  },
+  {
+    path: '/feed',
+    name: 'yourFeed',
+    component: YourFeed,
+  },
+  {
+    path: '/tags/:slug',
+    name: 'tag',
+    component: TagFeed,
+  },
+  {
+    path: '/article/new',
+    name: 'createArticle',
+    component: CreateArticle,
+  },
+  {
+    path: '/article/:slug',
+    name: 'article',
+    component: Article,
+  },
+  {
+    path: '/article/:slug/edit',
+    name: 'editArticle',
+    component: EditArticle,
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: Settings,
+  },
+  {
+    path: '/profiles/:slug',
+    name: 'userProfile',
+    component: UserProfile,
+  },
+  {
+    path: '/profiles/:slug/favorites',
+    name: 'userProfileFavorites',
+    component: UserProfile,
+  },
+];
 
 const router = new VueRouter({
-  routes
-})
+  mode: 'history', // remove # from url
+  routes,
+});
 
-export default router
+export default router;
